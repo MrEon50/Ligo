@@ -193,7 +193,7 @@ cd _projects && python orchestrator/main.py  # System nadal działa — polski m
 
 | Dokument             | Ścieżka                          | Co zawiera                                             | Kiedy czytać              |
 | -------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------- |
-| `README.md`          | `README.md`                      | Jak korzystać z LIGO (ten plik)                        | Zawsze na początku        |
+| `README.md`          | `_projects/README.md`            | Jak korzystać z LIGO (ten plik)                        | Zawsze na początku        |
 | `PROJECT_ANCHOR.md`  | `_system/project_anchor.md`      | Konstytucja, zasady, checkpointy — **NIE MODYFIKUJ!**  | Przed każdą decyzją       |
 | `TECH_STACK.md`      | `_system/tech_stack.md`          | Standardy kodowania i technologie — **NIE MODYFIKUJ!** | Przy pisaniu kodu         |
 | `MASTER PROMPT`      | `_hub/master_prompt_ligo_2.0.md` | Instrukcja startowa dla agenta AI (v2.0)               | Na początku sesji         |

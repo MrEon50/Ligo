@@ -1,0 +1,1 @@
+# Tests package — Testy jednostkowe i integracyjne
