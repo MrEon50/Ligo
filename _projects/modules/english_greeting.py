@@ -20,8 +20,8 @@ class EnglishGreetingService(GreetingServiceProtocol):
     Every ``greet`` call is deterministic for the same input.
     """
 
-    _LANGUAGE = "en"
-    _VERSION = "1.0.0"
+    _LANGUAGE: str = "en"
+    _VERSION: str = "1.0.0"
 
     def greet(self, name: str, context: dict | None = None) -> str:
         """Generate an English greeting considering time of day.
@@ -33,6 +33,12 @@ class EnglishGreetingService(GreetingServiceProtocol):
 
         Returns:
             Greeting text in English.
+        
+        Granice godzinowe:
+            - noc:   0-5,  22-23
+            - rano:  6-11
+            - popołudnie: 12-17
+            - wieczór: 18-21
         """
         hour = self._extract_hour(context)
 
@@ -42,8 +48,10 @@ class EnglishGreetingService(GreetingServiceProtocol):
             prefix = "Good morning"
         elif hour < 18:
             prefix = "Good afternoon"
-        else:
+        elif hour < 22:
             prefix = "Good evening"
+        else:
+            prefix = "Good night"  # >= 22
 
         return f"{prefix}, {name}!"
 

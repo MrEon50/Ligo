@@ -78,3 +78,411 @@
 2026-07-04 16:31:15,570 | INFO  | LIGO.ligo.registry | Service 'greeting.en' registered successfully. | context={"key": "greeting.en", "contract": "GreetingServiceProtocol", "module_path": "modules.english_greeting"}
 2026-07-04 16:31:15,570 | INFO  | LIGO.ligo.registry | Service 'greeting.pl' retrieved from registry. | context={"key": "greeting.pl", "caller": "unknown"}
 2026-07-04 16:31:15,570 | INFO  | LIGO.ligo.registry | Service 'greeting.en' retrieved from registry. | context={"key": "greeting.en", "caller": "unknown"}
+2026-07-07T21:39:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:39:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T21:39:02+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:39:10+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T21:39:10+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:39:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T21:57:48+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T21:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:01:27+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:01:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:01:37+0200 | INFO  | LIGO.ligo.registry | Registry snapshot saved: C:\Users\Endorfinka\Desktop\ZBIERACZ KODU\Ligo\_projects\snapshots\LIGO_REGISTRY_SNAPSHOT_default.json | context={"filepath": "C:\\Users\\Endorfinka\\Desktop\\ZBIERACZ KODU\\Ligo\\_projects\\snapshots\\LIGO_REGISTRY_SNAPSHOT_default.json"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:03:10+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:03:10+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:03:10+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:06:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:06:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:11:27+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:11:27+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:12:06+0200 | INFO  | LIGO.ligo.registry | Registry snapshot saved: C:\Users\Endorfinka\Desktop\ZBIERACZ KODU\Ligo\_projects\snapshots\LIGO_REGISTRY_SNAPSHOT_default.json | context={"filepath": "C:\\Users\\Endorfinka\\Desktop\\ZBIERACZ KODU\\Ligo\\_projects\\snapshots\\LIGO_REGISTRY_SNAPSHOT_default.json"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:32:13+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:32:13+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:32:13+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:36:20+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:36:57+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:36:57+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:42:18+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:42:18+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:50:58+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:50:58+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:50:58+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:51:06+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:51:06+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:51:06+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:51:07+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:51:07+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:51:07+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:16+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:57:16+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:57:31+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:31+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:57:48+0200 | INFO  | LIGO.ligo.registry | Service 'default:ai_params' registered successfully. | context={"prefixed_key": "default:ai_params", "class_name": "AIParamsService", "project_id": "default"}
+2026-07-07T22:57:48+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:56+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T22:57:56+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T22:57:56+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T23:02:05+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:05+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T23:02:21+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:02:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T23:05:42+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:05:42+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T23:06:02+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:06:02+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:13:26+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:13:26+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:13:26+0200 | INFO  | LIGO.ligo.registry | Service 'default:ai_params' registered successfully. | context={"prefixed_key": "default:ai_params", "class_name": "AIParamsService", "project_id": "default"}
+2026-07-07T23:13:26+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:13:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T23:13:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:13:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-07T23:16:16+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-07T23:16:16+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:key1' registered successfully. | context={"prefixed_key": "default:key1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:key2' registered successfully. | context={"prefixed_key": "default:key2", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:test' registered successfully. | context={"prefixed_key": "default:test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_0' registered successfully. | context={"prefixed_key": "default:svc_0", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_1' registered successfully. | context={"prefixed_key": "default:svc_1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_2' registered successfully. | context={"prefixed_key": "default:svc_2", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_3' registered successfully. | context={"prefixed_key": "default:svc_3", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_4' registered successfully. | context={"prefixed_key": "default:svc_4", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_5' registered successfully. | context={"prefixed_key": "default:svc_5", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_6' registered successfully. | context={"prefixed_key": "default:svc_6", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_7' registered successfully. | context={"prefixed_key": "default:svc_7", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_8' registered successfully. | context={"prefixed_key": "default:svc_8", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_9' registered successfully. | context={"prefixed_key": "default:svc_9", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:simple' registered successfully. | context={"prefixed_key": "default:simple", "class_name": "SimpleService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:none' registered successfully. | context={"prefixed_key": "default:none", "class_name": "NoneType", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:35:35+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:35:35+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:key1' registered successfully. | context={"prefixed_key": "default:key1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service instance is already registered under key 'default:key1'. Cannot register the same instance under 'default:key2'. | context={"existing_key": "default:key1", "new_key": "default:key2"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:test' registered successfully. | context={"prefixed_key": "default:test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' unregistered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' unregistered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service 'default:x' is not registered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_0' registered successfully. | context={"prefixed_key": "default:svc_0", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_1' registered successfully. | context={"prefixed_key": "default:svc_1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_2' registered successfully. | context={"prefixed_key": "default:svc_2", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_3' registered successfully. | context={"prefixed_key": "default:svc_3", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_4' registered successfully. | context={"prefixed_key": "default:svc_4", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_5' registered successfully. | context={"prefixed_key": "default:svc_5", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_6' registered successfully. | context={"prefixed_key": "default:svc_6", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_7' registered successfully. | context={"prefixed_key": "default:svc_7", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_8' registered successfully. | context={"prefixed_key": "default:svc_8", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_9' registered successfully. | context={"prefixed_key": "default:svc_9", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:simple' registered successfully. | context={"prefixed_key": "default:simple", "class_name": "SimpleService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:43:08+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:43:08+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:key1' registered successfully. | context={"prefixed_key": "default:key1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service instance is already registered under key 'default:key1'. Cannot register the same instance under 'default:key2'. | context={"existing_key": "default:key1", "new_key": "default:key2"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:test' registered successfully. | context={"prefixed_key": "default:test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' unregistered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' unregistered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service 'default:x' is not registered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_0' registered successfully. | context={"prefixed_key": "default:svc_0", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_1' registered successfully. | context={"prefixed_key": "default:svc_1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_2' registered successfully. | context={"prefixed_key": "default:svc_2", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_3' registered successfully. | context={"prefixed_key": "default:svc_3", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_4' registered successfully. | context={"prefixed_key": "default:svc_4", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_5' registered successfully. | context={"prefixed_key": "default:svc_5", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_6' registered successfully. | context={"prefixed_key": "default:svc_6", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_7' registered successfully. | context={"prefixed_key": "default:svc_7", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_8' registered successfully. | context={"prefixed_key": "default:svc_8", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_9' registered successfully. | context={"prefixed_key": "default:svc_9", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:simple' registered successfully. | context={"prefixed_key": "default:simple", "class_name": "SimpleService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:46:17+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:46:17+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:47:20+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:greet.test' registered successfully. | context={"prefixed_key": "default:greet.test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:20+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:dup' registered successfully. | context={"prefixed_key": "default:dup", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | WARNING | LIGO.ligo.registry | Service 'default:dup' is already registered. | context={"prefixed_key": "default:dup"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:key1' registered successfully. | context={"prefixed_key": "default:key1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | WARNING | LIGO.ligo.registry | Service instance is already registered under key 'default:key1'. Cannot register the same instance under 'default:key2'. | context={"existing_key": "default:key1", "new_key": "default:key2"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:en' registered successfully. | context={"prefixed_key": "default:en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:test' registered successfully. | context={"prefixed_key": "default:test", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' unregistered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' registered successfully. | context={"prefixed_key": "default:x", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:21+0200 | INFO  | LIGO.ligo.registry | Service 'default:x' unregistered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:47:21+0200 | WARNING | LIGO.ligo.registry | Service 'default:x' is not registered. | context={"prefixed_key": "default:x"}
+2026-07-08T00:47:21+0200 | WARNING | LIGO.ligo.registry | Service 'default:nonexistent' is not registered. | context={"prefixed_key": "default:nonexistent"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:pl' registered successfully. | context={"prefixed_key": "default:pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_0' registered successfully. | context={"prefixed_key": "default:svc_0", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_1' registered successfully. | context={"prefixed_key": "default:svc_1", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_2' registered successfully. | context={"prefixed_key": "default:svc_2", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_3' registered successfully. | context={"prefixed_key": "default:svc_3", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_4' registered successfully. | context={"prefixed_key": "default:svc_4", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_5' registered successfully. | context={"prefixed_key": "default:svc_5", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_6' registered successfully. | context={"prefixed_key": "default:svc_6", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_7' registered successfully. | context={"prefixed_key": "default:svc_7", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_8' registered successfully. | context={"prefixed_key": "default:svc_8", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:svc_9' registered successfully. | context={"prefixed_key": "default:svc_9", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | List services requested.
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:simple' registered successfully. | context={"prefixed_key": "default:simple", "class_name": "SimpleService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.pl' registered successfully. | context={"prefixed_key": "default:greeting.pl", "class_name": "PolishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | Service 'default:greeting.en' registered successfully. | context={"prefixed_key": "default:greeting.en", "class_name": "EnglishGreetingService", "project_id": "default"}
+2026-07-08T00:47:22+0200 | INFO  | LIGO.ligo.registry | List services requested.

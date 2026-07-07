@@ -1,9 +1,13 @@
 # 🧩 LIGO 2.0 — The Safe-Zone + Meta-Cycling System
 
 **Framework inżynierii modułowej do budowania gigantycznych systemów za pomocą agentów AI.**  
-**Wersja:** 2.0 (Safe-Zone + Meta-Cycling)
+**Wersja:** 2.0-alpha (Safe-Zone + Meta-Cycling)
 
 ---
+
+## ⚠️ UWAGA: Faza Alpha
+
+> **Ligo 2.0 jest w fazie alpha.** API może ulec zmianie. Struktura architektoniczna jest stabilna, ale implementacje modułów są niekompletne i mogą zawierać błędy. Nie używaj w produkcji bez pełnego testowania.
 
 ## 🎯 Co to jest LIGO?
 
@@ -77,8 +81,9 @@ ligo/
 │   ├── tests/                  # ✅ Testy jednostkowe i integracyjne
 │   └── snapshots/              # 📸 Pamięć robocza (snapshoty po każdym cyklu)
 │
-├── snapshots/                  # 💾 PAMIĘĆ (Historyczne snapshoty)
-└── scratchpad.md               # 🧪 Eksperymentalne myślenie AI
+├── __pycache__/                # 🗑️ Tymczasowe pliki Python — usuwaj przed commitem!
+├── clean_pycache.bat           # 🔧 Skrypt do czyszczenia __pycache__
+└── README.md                   # Ten plik
 ```
 
 ### Rola każdej strefy:
@@ -191,14 +196,16 @@ cd _projects && python orchestrator/main.py  # System nadal działa — polski m
 
 ## 📋 Dokumenty Kluczowe
 
-| Dokument             | Ścieżka                          | Co zawiera                                             | Kiedy czytać              |
-| -------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------- |
-| `README.md`          | `README.md`                      | Jak korzystać z LIGO (ten plik)                        | Zawsze na początku        |
-| `PROJECT_ANCHOR.md`  | `_system/project_anchor.md`      | Konstytucja, zasady, checkpointy — **NIE MODYFIKUJ!**  | Przed każdą decyzją       |
-| `TECH_STACK.md`      | `_system/tech_stack.md`          | Standardy kodowania i technologie — **NIE MODYFIKUJ!** | Przy pisaniu kodu         |
-| `MASTER PROMPT`      | `_hub/master_prompt_ligo_2.0.md` | Instrukcja startowa dla agenta AI (v2.0)               | Na początku sesji         |
-| `current_task.md`    | `_hub/current_task.md`           | Bieżące zadania, propozycje, raporty problemów         | Podczas pracy             |
-| `LIGO_SNAPSHOT_*.md` | `_projects/snapshots/`           | Techniczny stan po każdym cyklu                        | Aby zrozumieć co zrobiono |
+| Dokument                 | Ścieżka                                     | Co zawiera                                             | Kiedy czytać                      |
+| ------------------------ | ------------------------------------------- | ------------------------------------------------------ | --------------------------------- |
+| `README.md`              | `README.md`                                 | Jak korzystać z LIGO (ten plik)                        | Zawsze na początku                |
+| `PROJECT_ANCHOR.md`      | `_system/project_anchor.md`                 | Konstytucja, zasady, checkpointy — **NIE MODYFIKUJ!**  | Przed każdą decyzją               |
+| `TECH_STACK.md`          | `_system/tech_stack.md`                     | Standardy kodowania i technologie — **NIE MODYFIKUJ!** | Przy pisaniu kodu                 |
+| `MASTER PROMPT`          | `_hub/master_prompt_ligo_2.0.md`            | Instrukcja startowa dla agenta AI (v2.0)               | Na początku sesji                 |
+| `current_task.md`        | `_hub/current_task.md`                      | Bieżące zadania, propozycje, raporty problemów         | Podczas pracy                     |
+| `DESIGN PHILOSOPHY`      | `_docs/design_philosophy.md`                | Filozofia projektu, testy, dependency limits           | **Nowy!** — zrozumienie idei Ligo |
+| `LIGO_SNAPSHOT_*.md`     | `_projects/snapshots/`                      | Techniczny stan po każdym cyklu                        | Aby zrozumieć co zrobiono         |
+| `TECHNICAL AUDIT REPORT` | `_projects/audit/technical_audit_report.md` | Raport audytu technicznego z poprawkami                | Przed wdrożeniem                  |
 
 ---
 
@@ -217,6 +224,49 @@ python -m pytest tests/ -v  # Uruchom wszystkie testy
 
 ---
 
+## 🎛️ AI Parameters — Zarządzanie Parametrami AI
+
+Nowy moduł w LIGO 2.0 — stateless manager parametrów AI z wbudowanymi profilami:
+
+| Profil          | Temperature | Top_P   | Użycie                                     |
+| --------------- | ----------- | ------- | ------------------------------------------ |
+| `default`       | 0.7         | 0.9     | Uniwersalne zastosowanie                   |
+| `coding`        | 0.15        | 0.75    | Precyzyjne generowanie kodu                |
+| `planning`      | 0.45        | 0.85    | Strukturalne planowanie                    |
+| `brainstorming` | **1.2**     | **0.6** | Kreatywne generowanie pomysłów (ulubione!) |
+| `debugging`     | 0.1         | 0.65    | Dokładna analiza błędów                    |
+
+### Jak używać?
+
+```python
+from modules.ai_params import AIParamsService
+
+svc = AIParamsService()
+
+# Pobierz profil
+params = svc.get_profile("coding")
+print(params)  # {'temperature': 0.15, 'top_p': 0.75, ...}
+
+# Stwórz własny profil (ulubione ustawienia!)
+my_profile = svc.create_custom_profile(
+    "my_creative", temperature=1.2, top_p=0.6
+)
+
+# Zapisz do pliku JSON (trwałe!)
+svc.save_custom_profile("my_creative", "my_favorite.json")
+
+# Wróć do default w dowolnym momencie
+default = svc.reset_to_default()
+```
+
+### Dlaczego to działa?
+
+- **Stateless** — żadne dane nie są zapisywane w pamięci między wywołaniami
+- **Elastyczne** — AI decyduje kiedy użyć profilu, a kiedy wrócić do default
+- **Trwałe** — ulubione ustawienia można zapisać na dysku i wczytać później
+
+---
+
 ## 📐 Zasady Dla Agentów AI (Ligo 2.0)
 
 Jeśli Twój agent AI pracuje nad LIGO, musi:
@@ -232,12 +282,12 @@ Jeśli Twój agent AI pracuje nad LIGO, musi:
 
 ## 🗺️ Roadmapa Projektu
 
-| Faza               | Cel                                                                           | Status            |
-| ------------------ | ----------------------------------------------------------------------------- | ----------------- |
-| 1 — MVG            | Minimum Viable Glue (Generator Powitań)                                       | ✅ UKOŃCZONA      |
-| 2.0 — Meta-Cyklizm | Context Manager + Dependency Graph (zachowywanie kontekstu między sesjami AI) | ✅ UKOŃCZONA      |
-| 3 — Rozszerzanie   | Dodatkowe moduły, testy izolacji awarii                                       | ⏳ Do rozpoczęcia |
-| 4 — Skalowanie     | Złożone moduły biznesowe, optymalizacja                                       | 🔲 Zaplanowana    |
+| Faza               | Cel                                                                           | Status               |
+| ------------------ | ----------------------------------------------------------------------------- | -------------------- |
+| 1 — MVG            | Minimum Viable Glue (Generator Powitań)                                       | ✅ UKOŃCZONA (alpha) |
+| 2.0 — Meta-Cyklizm | Context Manager + Dependency Graph (zachowywanie kontekstu między sesjami AI) | ✅ UKOŃCZONA (alpha) |
+| 3 — Rozszerzanie   | Dodatkowe moduły, testy izolacji awarii                                       | ⏳ Do rozpoczęcia    |
+| 4 — Skalowanie     | Złożone moduły biznesowe, optymalizacja                                       | 🔲 Zaplanowana       |
 
 ---
 
@@ -249,7 +299,7 @@ Jeśli Twój agent AI pracuje nad LIGO, musi:
 4. **Podaj cel** w stylu: "Stwórz moduł do [twoja domena]"
 5. AI zacznie działać autonomicznie według protokołu LIGO 2.0 (w tym meta-cyklizm)
 
-> **Uwaga:** Konfiguracja projektu wymaga czasu (1-2 godziny na setup). LIGO nie jest narzędziem "out of the box" — to framework architektoniczny który trzeba dostosować do swojego projektu.
+> **⚠️ Uwaga:** Konfiguracja projektu wymaga czasu (1-2 godziny na setup). LIGO to framework architektoniczny w fazie alpha — trzeba dostosować do swojego projektu. Struktura może ulec zmianie!
 
 ---
 
@@ -265,6 +315,9 @@ LIGO to **framework architektoniczny** który pomaga budować modułowe systemy 
 | **Meta-Cyklizm**           | Zapisuje kontekst między sesjami (Context Manager + Dependency Graph) | Działa tylko w ramach jednego projektu — nie synchronizuje między projektami |
 | **Walidacja Kontraktów**   | Sprawdza czy moduły spełniają wymagane interfejsy                     | Nie wykrywa błędów logicznych w implementacji                                |
 | **Struktura Projektu**     | Jasny podział na kontrakty, moduły, registry, orchestrator            | Wymaga disciplinednego przestrzegania warstw (brak importów między modułami) |
+| **AI Parameters**          | Zarządzanie parametrami AI z wbudowanymi profilami                    | Opcjonalne — AI może korzystać lub ignorować                                 |
+
+> 📋 **Status Po Audycie Technicznym (2026-07-08):** Architektura ✅ stabilna | Bezpieczeństwo ✅ poprawione | Kod ⚠️ w rozwoju (brak pełnych testów) | Dokumentacja ✅ dobra
 
 ### ❌ Czego LIGO NIE Robi:
 

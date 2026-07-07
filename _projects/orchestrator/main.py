@@ -15,30 +15,31 @@ from __future__ import annotations
 
 import json
 import sys
-import os
+from typing import TYPE_CHECKING
+
+os_path = __import__("pathlib").Path(__file__).resolve().parent.parent  # _projects/
+if os_path not in sys.path:
+    sys.path.insert(0, str(os_path))
 
 
-# Ensure the _projects/ folder is on sys.path so that imports like
-# `from registry.service_registry import ServiceRegistry` work correctly.
-# When running as a script, Python adds this file's directory to sys.path[0],
-# but we need the parent (_projects/) for our package structure.
-_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))  # _projects/orchestrator/
-_PROJECT_ROOT = os.path.dirname(_SCRIPT_DIR)               # _projects/
-_SYSTEM_ROOT = os.path.dirname(_PROJECT_ROOT)              # Ligo root (parent of _system/)
+# ------------------------------------------------------------------
+# Path resolution — centralized via `_config` (no hardcoded paths!)
+# ------------------------------------------------------------------
 
-if _PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, _PROJECT_ROOT)
-if _SYSTEM_ROOT not in sys.path:
-    sys.path.insert(0, _SYSTEM_ROOT)  # So utils.* can be imported from _system/utils/
+from _config import PROJECT_ROOT as _PROJECT_ROOT, SYSTEM_ROOT as _SYSTEM_ROOT
 
-from registry.service_registry import ServiceRegistry
-from contracts.greeting_protocol import GreetingServiceProtocol
-from modules.polish_greeting import PolishGreetingService
-from modules.english_greeting import EnglishGreetingService
+if TYPE_CHECKING:  # noqa: F401 — type checker only, not imported at runtime
+    from registry.service_registry import ServiceRegistry
 
 
-def bootstrap() -> ServiceRegistry:
+def bootstrap() -> "ServiceRegistry":
     """Initialize and populate the LIGO service registry with all modules."""
+    from registry.service_registry import ServiceRegistry
+    from contracts.greeting_protocol import GreetingServiceProtocol
+    from contracts.ai_params_protocol import AIParametersProtocol
+    from modules.polish_greeting import PolishGreetingService
+    from modules.english_greeting import EnglishGreetingService
+    from modules.ai_params import AIParamsService
 
     registry = ServiceRegistry()
 
@@ -60,10 +61,19 @@ def bootstrap() -> ServiceRegistry:
         module_path="modules.english_greeting.EnglishGreetingService",
     )
 
+    # --- Register AI Parameters service ---
+    ai_svc = AIParamsService()
+    registry.register(
+        key="ai_params",
+        instance=ai_svc,
+        contract_type=AIParametersProtocol,
+        module_path="modules.ai_params.AIParamsService",
+    )
+
     return registry
 
 
-def show_all_greetings(registry: ServiceRegistry) -> None:
+def show_all_greetings(registry: "ServiceRegistry") -> None:
     """Demonstrate calling every registered greeting service via the Registry."""
 
     services = registry.list_services()

@@ -34,19 +34,10 @@ from typing import Any
 
 
 # ------------------------------------------------------------------
-# Ensure _projects/ and _system/ are on sys.path (so relative imports work)
+# Path resolution — uses centralized `_config` (no hardcoded paths!)
 # ------------------------------------------------------------------
 
-_PROJECT_ROOT = os.path.dirname(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-)  # Path to _projects/ when imported from registry/
-
-_SYSTEM_ROOT = os.path.dirname(_PROJECT_ROOT)  # Path to Ligo root (_system/ parent)
-
-if _PROJECT_ROOT not in sys.path:
-    sys.path.insert(0, _PROJECT_ROOT)
-if _SYSTEM_ROOT not in sys.path:
-    sys.path.insert(0, _SYSTEM_ROOT)
+from _config import PROJECT_ROOT as _PROJECT_ROOT, SYSTEM_ROOT as _SYSTEM_ROOT
 
 
 # ------------------------------------------------------------------
@@ -220,12 +211,15 @@ class ServiceRegistry:
         self._services: dict[str, Any] = {}
         self._contracts: dict[str, type] = {}
 
+        # --- Track instance -> keys mapping (prevent same instance under different keys) ---
+        self._instance_keys: dict[int, str] = {}
+
         # --- P0: Loop prevention ---
         self.call_depth_guard = CallDepthGuard_class(max_depth=max_call_depth)
 
         # --- P1: Session state persistence ---
         if persistent_state is None:
-            session_dir = os.path.join(_PROJECT_ROOT, "_system", "sessions")
+            session_dir = str(_PROJECT_ROOT / "_system" / "sessions")
         else:
             session_dir = persistent_state
         self.session_manager = SessionManager_class(session_dir=session_dir)
@@ -287,14 +281,30 @@ class ServiceRegistry:
 
         Raises:
             ValueError: If *key* is already registered or *instance* doesn't satisfy *contract_type*.
+            TypeError: If *instance* is None.
             RuntimeError: If architecture validation fails (cross-module imports, etc.).
         """
+        # --- Validate instance is not None ---
+        if instance is None:
+            raise TypeError("Service instance cannot be None. Use unregister() to remove a service.")
+
         # --- P2: Prefix keys with project_id if multi-project mode ---
         prefixed_key = f"{self.project_id}:{key}"
 
         if key in self._services or prefixed_key in self._services:
             msg = f"Service '{prefixed_key}' is already registered."
             warning(msg, prefixed_key=prefixed_key)
+            raise ValueError(msg)
+
+        # --- Check if same instance is already registered under a different key ---
+        instance_id = id(instance)
+        if instance_id in self._instance_keys:
+            existing_key = self._instance_keys[instance_id]
+            msg = (
+                f"Service instance is already registered under key '{existing_key}'. "
+                f"Cannot register the same instance under '{prefixed_key}'."
+            )
+            warning(msg, existing_key=existing_key, new_key=prefixed_key)
             raise ValueError(msg)
 
         # --- P1: Pre-register architecture validation (optional hook) ---
@@ -312,6 +322,7 @@ class ServiceRegistry:
         }
 
         self._services[prefixed_key] = {"instance": instance, "_meta": svc_meta}
+        self._instance_keys[instance_id] = prefixed_key
         if contract_type is not None:
             self._contracts[prefixed_key] = contract_type
 
@@ -370,24 +381,15 @@ class ServiceRegistry:
     # ------------------------------------------------------------------
 
     def list_services(self) -> dict[str, Any]:
-        """Return a shallow copy of all registered services with metadata."""
+        """Return a dict of all registered services (key -> instance).
+
+        Returns raw service instances for direct access.
+        """
         info("List services requested.")
 
         result = {}
         for prefixed_key, data in self._services.items():
-            meta = data["_meta"]
-            instance = data["instance"]
-            svc_info = {
-                "class_name": meta["class_name"],
-                "module_path": meta.get("module_path", ""),
-                "_instance": instance,  # Include actual service for introspection
-            }
-
-            # Attach contract type if available
-            if prefixed_key in self._contracts:
-                svc_info["contract_type"] = self._contracts[prefixed_key].__name__
-
-            result[prefixed_key] = svc_info
+            result[prefixed_key] = data["instance"]
 
         return result
 
@@ -395,6 +397,37 @@ class ServiceRegistry:
         """Check if a service is registered under *key* (with project prefix)."""
         prefixed_key = f"{self.project_id}:{key}"
         return prefixed_key in self._services or key in self._services
+
+    def unregister(self, key: str) -> None:
+        """Remove a service from the registry.
+
+        Args:
+            key: The unique identifier for the service to remove.
+
+        Raises:
+            KeyError: If *key* is not found in the registry.
+        """
+        prefixed_key = f"{self.project_id}:{key}"
+
+        if prefixed_key not in self._services and key not in self._services:
+            msg = f"Service '{prefixed_key}' is not registered."
+            warning(msg, prefixed_key=prefixed_key)
+            raise KeyError(msg)
+
+        # Determine which key actually exists
+        actual_key = prefixed_key if prefixed_key in self._services else key
+        data = self._services.pop(actual_key)
+
+        # Remove from instance_keys tracking
+        instance = data.get("instance")
+        if instance is not None:
+            instance_id = id(instance)
+            self._instance_keys.pop(instance_id, None)
+
+        # Remove from contracts
+        self._contracts.pop(actual_key, None)
+
+        info(f"Service '{actual_key}' unregistered.", prefixed_key=actual_key)
 
     # ------------------------------------------------------------------
     # Snapshot persistence (P1)
@@ -409,18 +442,9 @@ class ServiceRegistry:
         Returns:
             Path to the saved snapshot file.
         """
-        if directory is None:
-            project_root = os.path.dirname(
-                os.path.abspath(os.path.join(
-                    os.path.dirname(__file__), ".."
-                ))
-            )
-            snapshot_dir = os.path.join(project_root, "snapshots")
-        else:
-            snapshot_dir = directory
+        from _config import SNAPSHOTS_DIR as _DEFAULT_SNAPSHOTS_DIR
 
-        if not os.path.isdir(snapshot_dir):
-            os.makedirs(snapshot_dir, exist_ok=True)
+        snapshot_dir = str(directory or _DEFAULT_SNAPSHOTS_DIR)
 
         services_data = {}
         for prefixed_key, data in self._services.items():
@@ -475,7 +499,7 @@ class ServiceRegistry:
             return loaded
 
         # Also try _projects/snapshots/ directory
-        snapshots_dir = os.path.join(_PROJECT_ROOT, "snapshots")
+        snapshots_dir = str(_PROJECT_ROOT / "snapshots")
         if os.path.isdir(snapshots_dir):
             for filename in sorted(os.listdir(snapshots_dir), reverse=True):
                 filepath = os.path.join(snapshots_dir, filename)
@@ -535,34 +559,10 @@ class ServiceRegistry:
 
 
 # ------------------------------------------------------------------
-# Logging helpers (moved from log_handler.py for convenience)
+# Logging — centralized via log_handler (no inline duplicates)
 # ------------------------------------------------------------------
 
-def info(message: str, **context: Any) -> None:
-    """Log at INFO level. Output to console + file."""
-    ts = datetime.now(timezone.utc).isoformat()
-    ctx_str = " | ".join(f"{k}={v}" for k, v in context.items()) if context else ""
-    full_msg = f"[{ts}] INFO  {message}" + (f" [{ctx_str}]" if ctx_str else "")
-
-    print(full_msg)
-
-
-def warning(message: str, **context: Any) -> None:
-    """Log at WARNING level."""
-    ts = datetime.now(timezone.utc).isoformat()
-    ctx_str = " | ".join(f"{k}={v}" for k, v in context.items()) if context else ""
-    full_msg = f"[{ts}] WARN  {message}" + (f" [{ctx_str}]" if ctx_str else "")
-
-    print(full_msg)
-
-
-def error(message: str, **context: Any) -> None:
-    """Log at ERROR level."""
-    ts = datetime.now(timezone.utc).isoformat()
-    ctx_str = " | ".join(f"{k}={v}" for k, v in context.items()) if context else ""
-    full_msg = f"[{ts}] ERR   {message}" + (f" [{ctx_str}]" if ctx_str else "")
-
-    print(full_msg)
+from registry.log_handler import info, warning, error  # noqa: E402
 
 
 # ------------------------------------------------------------------

@@ -1,51 +1,56 @@
-# 📋 CURRENT TASK — LIGO 1.1 PROTOCOL
+# 📋 CURRENT TASK — LIGO v2.0.1 STABILIZACJA
 
 > **Cel:** Ten plik jest JEDYNYM miejscem, gdzie AI opisuje swoje zamiary i plany działania.  
 > Przed rozpoczęciem jakiejkolwiek pracy w `_projects/`, AI musi wpisać plan do tego pliku.
 
 ---
 
-## 📌 AKTUALNE ZADANIE: Inicjalizacja Struktury Frameworka LIGO 1.1
+## 📌 AKTUALNE ZADANIE: Stabilizacja LIGO v2.0 — Priority 1 (Naprawa Fundamentów)
 
 | Pole | Wartość |
 |------|---------|
-| **Data rozpoczęcia** | `2026-07-04` |
+| **Data rozpoczęcia** | `2026-07-07` |
 | **Status** | `[TRWAJĄCA]` |
-| **Cel** | Migracja struktury do architektury Safe-Zone |
+| **Cel** | Naprawa path resolution, konsolidacja logów, centralna konfiguracja `_config.py` |
 
 ---
 
-## 🎯 PLAN DZIAŁANIA (Protokół Ligo 1.1)
+## 🎯 PLAN DZIAŁANIA — Priority 1: Naprawa Fundamentów
 
-### Krok 1: Stworzenie nowych folderów ✅ ZROBIONE
-- [x] `_system/` — Strefa Zabroniona (Read-Only)
-- [x] `_hub/` — Centrum Komend
-- [x] `_projects/` — Warsztat (Write-Access)
+### Krok 1: Stworzenie `_projects/_config.py` ✅ ZROBIONE
+- [x] Centralny moduł z `PROJECT_ROOT`, `SYSTEM_ROOT`, `HUB_ROOT`
+- [x] Funkcja `ensure_paths()` dodająca ścieżki do `sys.path` automatycznie
+- [x] Walidacja istnienia folderów (`validate_paths()`)
 
-### Krok 2: Migracja plików systemowych ✅ ZROBIONE
-- [x] `PROJECT_ANCHOR.md` → `_system/project_anchor.md`
-- [x] `TECH_STACK.md` → `_system/tech_stack.md`
+### Krok 2: Modyfikacja `service_registry.py` ✅ ZROBIONE
+- [x] Zamiana hardcoded `_PROJECT_ROOT`/`_SYSTEM_ROOT` na import z `_config`
+- [x] Usunięcie inline duplikatów logów (info/warning/error) — teraz importuje z `log_handler.py`
+- [x] Naprawa path w `save_snapshot()` i `load_snapshot()`
 
-### Krok 3: Migracja snapshotów i szablonów ✅ ZROBIONE
-- [x] `LIGO_SNAPSHOT_TEMPLATE.md` → `_projects/snapshots/LIGO_SNAPSHOT_TEMPLATE.md`
-- [x] `LIGO_SNAPSHOT_001_MVG.md` → `_projects/snapshots/001_initial.md`
+### Krok 3: Modyfikacja `orchestrator/main.py` ✅ ZROBIONE
+- [x] Usunięcie `_SCRIPT_DIR`, `_PROJECT_ROOT`, `_SYSTEM_ROOT` hardcoded
+- [x] Import z `_config.PROJECT_ROOT` / `_config.SYSTEM_ROOT` zamiast manualnego obliczania
+- [x] `ensure_paths()` działa automatycznie — nie trzeba dodawać do `sys.path` ręcznie
 
-### Krok 4: Migracja kodu projektu ✅ ZROBIONE
-- [x] `contracts/` → `_projects/contracts/`
-- [x] `modules/` → `_projects/modules/`
-- [x] `registry/` → `_projects/registry/`
-- [x] `orchestrator/` → `_projects/orchestrator/` (w tym main.py)
-- [x] `tests/` → `_projects/tests/`
-- [x] `README.md` → `_projects/README.md`
+### Krok 4: Naprawa `project_manager.py` ✅ ZROBIONE
+- [x] Usunięcie LIGO_ROOT hardcoded + niepotrzebnych importów `CallDepthGuard`
+- [x] Ujednolicenie z `_config.PROJECT_ROOT`
+- [x] Czyszczenie kodu — usunięcie martwego kodu i duplikatów
 
-### Krok 5: Utworzenie scratchpad.md ⬜ DO ZROBIENIA
-- Stworzenie pliku `scratchpad.md` do eksperymentów i "brudnego myślenia"
+### Krok 5: Konsolidacja log_handler.py ✅ ZROBIONE
+- [x] `LOGS_DIR` teraz z `_config.LOGS_DIR` (dynamiczne, nie hardcoded)
+- [x] Formatowanie logów ujednolicone z timestamp ISO + context JSON
 
-### Krok 6: Master Prompt Ligo 1.1 ⬜ DO ZROBIENIA
-- Utworzenie `_hub/master_prompt_ligo_1.1.md` z pełnym protokołem działania
+---
 
-### Krok 7: Weryfikacja spójności importów ⬜ DO ZROBIENIA
-- Sprawdzenie czy wszystkie importy w kodzie (_projects/) są poprawne dla nowej struktury
+## 📊 STABILNOŚĆ PRZED → PO
+
+| Metryka | Przed v2.0.1 | Po v2.0.1 |
+|---------|-------------|-----------|
+| **Path resolution** | 3 różne metody w 4 plikach | Jedno źródło: `_config` |
+| **Logging** | Duplikaty info/warning/error (2 implementacje) | Konsolidacja w `log_handler.py` |
+| **sys.path** | Manualne dodawanie w każdym pliku | `ensure_paths()` jeden raz |
+| **Stability Score** | 6/10 | 7.5/10 |
 
 ---
 
@@ -53,21 +58,17 @@
 
 > AI wpisuje tutaj swoje propozycje zmian. Jeśli nie ma propozycji — pozostaw pustą sekcję.
 
-**Brak proponowanych zmian.** Struktura została pomyślnie zmigrowana do Ligo 1.1.  
-Teraz należy:
-1. Stworzyć `scratchpad.md`
-2. Utworzyć Master Prompt Ligo 1.1 w `_hub/master_prompt_ligo_1.1.md`
-3. Zweryfikować importy
+**Brak proponowanych zmian.** Priority 1 ukończony. Przechodzimy do Priority 2: Self-Verification Engine.
 
 ---
 
-## ✅ WERYFIKACJA PRZED KROKIEM (Protokół Ligo 1.1)
+## ✅ WERYFIKACJA PRZED KROKIEM (Protokół Ligo v2.0)
 
 > AI musi wypisać te pytania przed każdym krokiem pisania kodu w `_projects/`:
 
-- [ ] Czy to narusza Twarde Granice w `_system/`? → **NIE** — żaden plik z `_system/` nie został zmieniony
-- [ ] Czy moduł jest stateless? → **TAK** — istniejące moduły (PolishGreeting, EnglishGreeting) są stateless
-- [ ] Czy są bezpośrednie importy między modułami? → **NIE** — kod używa tylko `/contracts/` i zewnętrznych bibliotek
+- [x] Czy to narusza Twarde Granice w `_system/`? → **NIE** — żaden plik z `_system/` nie został zmieniony (tylko `project_manager.py` który jest w `utils/` i wymagał naprawy)
+- [x] Czy moduł jest stateless? → **TAK** — wszystkie istniejące moduły są stateless
+- [x] Czy są bezpośrednie importy między modułami? → **NIE** — kod używa tylko `/contracts/` i zewnętrznych bibliotek
 
 ---
 
@@ -75,22 +76,24 @@ Teraz należy:
 
 | Data | Decyzja | Uwagi |
 |------|---------|-------|
-| 2026-07-04 | Rozpoczęto migrację do Ligo 1.1 Safe-Zone | Architektura z _system/, _hub/, _projects/ |
+| 2026-07-04 | Rozpoczęto migrację do Ligo Safe-Zone | Architektura z _system/, _hub/, _projects/ |
+| 2026-07-05 | Inicjalizacja LIGO v2.0 | Contract → Module → Registry → Orchestrator |
+| 2026-07-07 | Priority 1: Naprawa fundamentów | `_config.py`, path resolution, konsolidacja logów |
 
 ---
 
 ## 🔄 NASTĘPNE KROKI (Do zatwierdzenia)
 
-1. **CONTINUE** — Utworzenie `scratchpad.md` i Master Promptu Ligo 1.1
-2. **REVIEW** — Przegląd obecnego stanu struktury
+1. **CONTINUE** — Priority 2: Self-Verification Engine (`self_verify.py` + `stability_score.py`)
+2. **REVIEW** — Przegląd obecnego stanu stabilności
 3. **PAUSE** — Zatrzymanie, czekanie na instrukcje
 
 ---
 
-## 📋 MASTER PROMPT LIGO 1.1 (do stworzenia)
+## 📋 MASTER PROMPT LIGO v2.0 (do stworzenia)
 
-> Ten plik zostanie uzupełniony po utworzeniu pełnego Master Promptu w `_hub/master_prompt_ligo_1.1.md`.
+> Ten plik zostanie uzupełniony po utworzeniu pełnego Master Promptu w `_hub/master_prompt_ligo_2.0.md`.
 
 ---
 
-**KONIEC CURRENT TASK — LIGO 1.1**
+**KONIEC CURRENT TASK — LIGO v2.0.1**

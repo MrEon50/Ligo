@@ -31,11 +31,11 @@ class TestPolishGreeting(unittest.TestCase):
 
     def test_afternoon_greeting(self) -> None:
         result = self.service.greet("Tomek", {"hour": 14})
-        self.assertEqual(result, "Dobry wieczór, Tomek!")
+        self.assertEqual(result, "Dobry dzień, Tomek!")
 
     def test_evening_greeting(self) -> None:
         result = self.service.greet("Maja", {"hour": 20})
-        self.assertEqual(result, "Dobranoc, Maja!")
+        self.assertEqual(result, "Dobry wieczór, Maja!")
 
     def test_night_greeting(self) -> None:
         result = self.service.greet("Kasia", {"hour": 3})
@@ -144,9 +144,10 @@ class TestEndToEndWorkflow(unittest.TestCase):
         pl_result = pl_svc.greet("Ania", {"hour": 10})
         en_result = en_svc.greet("World", {"hour": 22})
 
-        # Godzina 10 -> rano (6-12): Dzień dobry / Good morning
+        # Godzina 10 -> rano (6-11): Dzień dobry / Good morning
+        # Godzina 22 -> noc (0-5, 22-23): Good night / Dobranoc
         self.assertEqual(pl_result, "Dzień dobry, Ania!")
-        self.assertEqual(en_result, "Good evening, World!")
+        self.assertEqual(en_result, "Good night, World!")
 
 
 if __name__ == "__main__":

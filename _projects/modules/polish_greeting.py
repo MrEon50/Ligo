@@ -2,26 +2,28 @@
 
 Stateless, zamknięty moduł. Nie importuje żadnych innych modułów z /modules.
 Zgodny z kontraktem GreetingServiceProtocol.
+
+Używa _utils.time_greeting_helper do jednolitej logiki godzinowej.
 """
 
 from __future__ import annotations
 
-import datetime as dt
 from typing_extensions import final
 
 from contracts.greeting_protocol import GreetingServiceProtocol
+from _utils.time_greeting_helper import get_greeting_period, format_greeting
 
 
 @final
 class PolishGreetingService(GreetingServiceProtocol):
     """Moduł generujący powitania w języku polskim.
 
-    Stanless — nie przechowuje żadnego stanu wewnątrz instancji.
+    Stateless — nie przechowuje żadnego stanu wewnątrz instancji.
     Każdy wywołanie metody ``greet`` jest deterministyczne dla tego samego inputu.
     """
 
-    _LANGUAGE = "pl"
-    _VERSION = "1.0.0"
+    _LANGUAGE: str = "pl"
+    _VERSION: str = "1.0.0"
 
     def greet(self, name: str, context: dict | None = None) -> str:
         """Wygeneruj polskie powitanie z uwzględnieniem pory dnia.
@@ -35,17 +37,8 @@ class PolishGreetingService(GreetingServiceProtocol):
             Tekst powitania w języku polskim.
         """
         hour = self._extract_hour(context)
-
-        if hour < 6:
-            prefix = "Dobranoc"
-        elif hour < 12:
-            prefix = "Dzień dobry"
-        elif hour < 18:
-            prefix = "Dobry wieczór"
-        else:
-            prefix = "Dobranoc"
-
-        return f"{prefix}, {name}!"
+        period = get_greeting_period(hour)
+        return format_greeting(self._LANGUAGE, period, name)
 
     def get_service_info(self) -> dict[str, str]:
         """Zwróć metadane tego modułu."""
@@ -73,6 +66,8 @@ class PolishGreetingService(GreetingServiceProtocol):
         if context and "hour" in context:
             return int(context["hour"]) % 24
 
-        tz_info = dt.timezone(dt.timedelta(hours=2))
-        now = dt.datetime.now(tz=tz_info)
+        # Domyślna godzina systemowa (UTC+2)
+        import datetime
+        tz_info = datetime.timezone(datetime.timedelta(hours=2))
+        now = datetime.datetime.now(tz=tz_info)
         return now.hour

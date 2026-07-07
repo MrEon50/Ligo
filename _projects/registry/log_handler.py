@@ -13,17 +13,24 @@ from datetime import datetime, timezone
 from typing import Any
 
 
-LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "logs")
-os.makedirs(LOG_DIR, exist_ok=True)
+# ------------------------------------------------------------------
+# Log path — centralized via `_config` (no hardcoded paths!)
+# ------------------------------------------------------------------
 
-_log_file = os.path.join(LOG_DIR, "registry.log")
+from _config import LOGS_DIR as _LOGS_DIR
+
+os.makedirs(_LOGS_DIR, exist_ok=True)
+_log_file = str(_LOGS_DIR / "registry.log")
 
 _logger = logging.getLogger("ligo.registry")
 _logger.setLevel(logging.INFO)
 
 _handler = logging.FileHandler(_log_file, encoding="utf-8")
 _handler.setFormatter(
-    logging.Formatter("%(asctime)s | %(levelname)-5s | LIGO.%(name)s | %(message)s")
+    logging.Formatter(
+        "%(asctime)s | %(levelname)-5s | LIGO.%(name)s | %(message)s",
+        datefmt="%Y-%m-%dT%H:%M:%S%z"
+    )
 )
 _logger.addHandler(_handler)
 
